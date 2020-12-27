@@ -6,8 +6,6 @@ import { login as loginRequest } from '@state/auth/slice';
 
 import { RootState } from '@state';
 
-import styles from './Auth.module.css';
-
 const Auth = () => {
   const dispatch = useDispatch();
   const { isLoggedIn } = useSelector((state: RootState) => state.auth);
@@ -27,7 +25,7 @@ const Auth = () => {
   }
 
   return (
-    <div className={styles.login}>
+    <div>
       <input type='text' name='login' onChange={(event) => setLogin(event.target.value)} />
       <input type='password' name='password' onChange={(event) => setPassword(event.target.value)} />
       <button type='submit' onClick={onSubmit}>
