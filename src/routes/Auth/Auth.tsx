@@ -27,7 +27,7 @@ const Auth = () => {
   }
 
   return (
-    <div className={styles.authPage}>
+    <div className={styles.login}>
       <input type='text' name='login' onChange={(event) => setLogin(event.target.value)} />
       <input type='password' name='password' onChange={(event) => setPassword(event.target.value)} />
       <button type='submit' onClick={onSubmit}>
