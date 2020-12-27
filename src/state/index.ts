@@ -2,12 +2,18 @@ import { combineReducers, configureStore, getDefaultMiddleware } from '@reduxjs/
 import createSagaMiddleware from 'redux-saga';
 import rootSaga from './rootSaga';
 
-const rootReducer = combineReducers({});
+import auth from './auth/slice';
+import users from './users/slice';
+
+const rootReducer = combineReducers({
+  auth,
+  users,
+});
 
 const sagaMiddleware = createSagaMiddleware();
 
 const middleware = [
-  ...getDefaultMiddleware({ thunk: false }),
+  ...getDefaultMiddleware({ thunk: false, serializableCheck: false, immutableCheck: false }),
   sagaMiddleware,
 ];
 

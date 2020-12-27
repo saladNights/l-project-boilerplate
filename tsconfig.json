@@ -15,10 +15,19 @@
     "skipLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@*": ["src/*"]
+      "@*": ["src/*"],
+      "@state/*": ["src/state/*"],
+      "@routes/*": ["src/routes/*"],
+      "@sharedComponents/*": ["src/sharedComponents/*"],
+      "@customHooks/*": ["src/customHooks/*"],
+      "@helpers/*": ["src/helpers/*"],
+      "@styles/*": ["src/styles/*"],
+      "@uiKit/*": ["src/uiKit/*"],
+      "@constants": ["./src/constants.ts"],
+      "@config": ["./src/config.ts"]
     }
   },
-  "include": ["src/**/*", ".eslintrc.js"],
+  "include": ["types/**/*", "src/**/*", ".eslintrc.js"],
   "exclude": [
     "./node_modules",
     "./dist",

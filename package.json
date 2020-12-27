@@ -7,7 +7,8 @@
     "start": "webpack serve --config webpack/dev.js",
     "build": "webpack --config webpack/prod.js",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "lint:js": "eslint \"./src/**/{*.js,*.ts,*.tsx}\" --output-file eslint-log.txt --fix"
+    "lint:js": "eslint \"./src/**/{*.js,*.ts,*.tsx}\" --fix",
+    "lint:styles": "stylelint \"./src/**/{*.css}\" --fix --config ./.stylelintrc-format"
   },
   "keywords": [],
   "author": "",
@@ -17,6 +18,8 @@
     "@babel/preset-env": "^7.12.1",
     "@babel/preset-react": "^7.12.5",
     "@babel/preset-typescript": "^7.12.1",
+    "@svgr/cli": "^5.5.0",
+    "@svgr/webpack": "^5.5.0",
     "@types/react": "^16.9.56",
     "@types/react-dom": "^16.9.9",
     "@types/react-redux": "^7.1.11",
@@ -24,6 +27,7 @@
     "@types/webpack-dev-server": "^3.11.1",
     "@typescript-eslint/eslint-plugin": "^4.8.2",
     "@typescript-eslint/parser": "^4.8.2",
+    "autoprefixer": "^10.1.0",
     "awesome-typescript-loader": "^5.2.1",
     "babel-loader": "^8.2.1",
     "clean-webpack-plugin": "^3.0.0",
@@ -37,9 +41,21 @@
     "eslint-plugin-promise": "^4.2.1",
     "eslint-plugin-react": "^7.21.5",
     "html-webpack-plugin": "^4.5.0",
-    "prettier": "^2.2.0",
+    "husky": "^4.3.5",
+    "lint-staged": "^10.5.3",
+    "postcss": "^8.2.1",
+    "postcss-flexbugs-fixes": "^5.0.2",
+    "postcss-loader": "^4.1.0",
+    "prettier": "^2.2.1",
     "react-hot-loader": "^4.13.0",
     "style-loader": "^2.0.0",
+    "stylelint": "^13.8.0",
+    "stylelint-config-prettier": "^8.0.2",
+    "stylelint-config-rational-order": "^0.1.2",
+    "stylelint-config-recommended": "^3.0.0",
+    "stylelint-config-standard": "^20.0.0",
+    "stylelint-order": "^4.1.0",
+    "stylelint-prettier": "^1.1.2",
     "typescript": "^4.0.5",
     "webpack": "^5.4.0",
     "webpack-cli": "^4.2.0",
@@ -53,5 +69,19 @@
     "react-redux": "^7.2.2",
     "react-router-dom": "^5.2.0",
     "redux-saga": "^1.1.3"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.{ts,tsx}": [
+      "eslint --fix"
+    ],
+    "*.css": [
+      "prettier --write",
+      "stylelint --fix --config ./.stylelintrc-format"
+    ]
   }
 }
