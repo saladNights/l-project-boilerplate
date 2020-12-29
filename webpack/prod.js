@@ -3,5 +3,6 @@ const common = require('./common');
 
 module.exports = merge(common, {
 	mode: 'production',
+	target: 'browserslist',
 	devtool: 'source-map',
 });
